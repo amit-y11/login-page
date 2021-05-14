@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/icons/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a457f8ea30.js" crossorigin="anonymous"></script>
+
+    <title>MusicVerse</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            font-size: 10px;
+        }
+        body{
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            background-color: #FEA726;
+            font-family: 'Poppins';
+        }
+        .login-container{
+            border-radius: 10px;
+            height: 450px;
+            width: 367px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 1px 1px 8px #ad6800;
+        }
+        .head{
+            padding: 10px;
+            font-size: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid rgb(211, 211, 211);
+        }
+        .login-body,.signup-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .email-wrap,
+        .pass-wrap,
+        .name-wrap{
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #email,
+        #pass,
+        #displayname{ 
+            font-family: sans-serif;
+            font-size: 1.5rem;
+            margin-left: 5px;
+            padding: 10px;
+            outline: none;
+            border: 0;
+            height: 30px;
+            width: 75%;
+        }
+        #email:focus,
+        #pass:focus,
+        #displayname:focus{
+            background-color: rgb(214, 255, 214);
+        }
+        .login,
+        .signup{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        #login-btn,
+        #signup-btn{
+            border-radius: 30px;
+            width: 100px;
+            height: 40px;
+            font-size: 2rem;
+            font-weight: 500;
+            border: 0;
+            background-color: rgb(106, 106, 255);
+            cursor: pointer;
+        }
+        #forgot-link{
+            color: blue;
+            text-decoration: none;
+        }
+        #forgot{
+            margin-top: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #forgot:hover{
+            color: rgb(111, 111, 255);
+        }
+        #signup-page,
+        #login-page{
+            margin-top: 20px;
+            text-align: center;
+        }
+        #signup-page span:hover,
+        #login-page span:hover{
+            color: rgb(111, 111, 255); 
+        }
+        #signup-page span,
+        #login-page span{
+            cursor: pointer;
+            color: blue;
+        }
+        .signup-container{
+            border-radius: 10px;
+            height: 450px;
+            width: 367px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 1px 1px 8px #ad6800;
+            display: none;
+        }
+        @media (max-width:400px){
+            .login-container,
+            .signup-container{
+                width: 320px;
+            }
+        }
+        @media (max-width:335px){
+            .login-container,
+            .signup-container{
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container" id="login-container">
+        <div class="head"><h1>Log in</h1></div>
+        <div class="login-body">
+            <form action="#" method="POST">
+            <div class="email-wrap"><i class="fas fa-envelope fa-2x"></i> <input type="email" name="email" id="email" placeholder="Email Address" required ></div>
+            <div class="pass-wrap"><i class="fas fa-lock fa-2x"></i><input type="password" name="password" id="pass" placeholder="Password" required></div>
+            <a href="#" id="forgot-link"><h2 id="forgot">Forgot Password ?</h2></a>
+            <div class="login"><input type="submit" value="log in" id="login-btn"></div>
+            </form>
+            <h2 id="signup-page">Don't have an account? <span>Sign up</a><span>
+        </div>
+    </div>
+    <div class="signup-container" id="signup-container">
+        <div class="head"><h1>Sign up</h1></div>
+        <div class="signup-body">
+            <form action="#" method="post">
+            <div class="name-wrap"><i class="fas fa-user fa-2x"></i><input type="text" name="name" id="displayname" placeholder="Display Name" required></div>
+            <div class="email-wrap"><i class="fas fa-envelope fa-2x"></i> <input type="email" name="email" id="email" placeholder="Email Address" required ></div>
+            <div class="pass-wrap"><i class="fas fa-lock fa-2x"></i><input type="password" name="create-password" id="pass" placeholder="Create Password" required></div>
+            <div class="signup"><input type="submit" value="Sign up" id="signup-btn"></div>
+            </form>
+            <h2 id="login-page">Already have an account? <span>Log in<span></h2>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let login_container = document.getElementById('login-container');
+        let signup_container = document.getElementById('signup-container');
+        const loginpage = document.getElementById('login-page');
+        const signuppage = document.getElementById('signup-page');
+        signuppage.addEventListener('click',function signup(){
+            login_container.style.display="none";
+            signup_container.style.display="block";
+        })
+        loginpage.addEventListener('click',function login(){
+            login_container.style.display="block";
+            signup_container.style.display="none";
+        })
+    </script>
+</body>
+
+</html>
